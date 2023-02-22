@@ -8,7 +8,6 @@ import shutil
 import tarfile
 import urllib.parse as urlparse
 import yaml
-from yaml
 
 from contextlib import contextmanager
 from pathlib import Path
