@@ -8,6 +8,7 @@ import shutil
 import tarfile
 import urllib.parse as urlparse
 import yaml
+from yaml
 
 from contextlib import contextmanager
 from pathlib import Path
@@ -496,7 +497,7 @@ class DebExtractor(Extractor):
         print("Extracting download sources from {}".format(self.config_blob))
 
         with open(self.config_blob,'r') as thefile:
-            deb_sources = yaml.load(thefile)
+            deb_sources = yaml.safe_load(thefile)
 
         try:
             os.mkdir(os.path.join(self.src_dir,'deb_archives'))
@@ -516,7 +517,7 @@ class DebExtractor(Extractor):
         # download yaml created by download_links.py
         
         with open(self.config_blob,'r') as thefile:
-            deb_sources = yaml.load(thefile)
+            deb_sources = yaml.safe_load(thefile)
 
         for package in deb_sources.keys():
             if deb_sources[package]['md5']:
